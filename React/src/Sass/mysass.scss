@@ -1,0 +1,72 @@
+$tc: lightblue;
+$bg: darkblue;
+$fs: 18px;
+
+.myhead {
+    color: $tc;
+    background-color: $bg;
+    font-size: $fs;
+}
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li {
+        display: inline-block;
+    }
+    a {
+        display: block;
+        padding: 6px 12px;
+        text-decoration: none;
+        color: red;
+        background-color: $bg;
+    }
+}
+
+.mytext{
+    text: {
+        align:center ;
+        decoration: underline;
+        transform: uppercase;
+        shadow: 2px 2px;
+    }
+}
+
+.btn-basic  {
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    background-color: lightgray;
+  }
+  
+  .btn-red  {
+    @extend.btn-basic;
+    background-color: red;
+  }
+  
+  .btn-green  {
+    @extend.btn-basic;
+    background-color: green;
+  }
+
+  .btn-blue  {
+    @extend.btn-basic;
+    background-color: blue;
+  }
+
+  .btn-pink  {
+    @extend.btn-basic;
+    background-color: pink;
+  }
+
+  .btn-orange  {
+    @extend.btn-basic;
+    background-color: orange;
+  }
+
