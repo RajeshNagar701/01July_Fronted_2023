@@ -7,10 +7,12 @@ import Jsx_component from "./JSX/Jsx_component";
 import About from "./Layout/Pages/About";
 import Contact from "./Layout/Pages/Contact";
 import Home from "./Layout/Pages/Home";
+import Mui_component from "./MUI/Mui_component";
 import Module_css from "./Module_css/Module_css";
 import Func_props from "./Props/Func_props";
 import Main_props from "./Props/Main_props";
 import Sass_css from "./Sass/Sass_css";
+import Styled_component from "./Styled_component/Styled_component";
 
 function App() {
   return (
@@ -41,7 +43,11 @@ function App() {
 
       // bootsrap / react-bootstrap 
       //<Simple_bootstrap/>
-      <React_Bootstrap/>
+      //<React_Bootstrap/>
+    
+      //mui / styled component
+      //<Mui_component/>
+      <Styled_component/>
     }
       
 
