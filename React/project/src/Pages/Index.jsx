@@ -1,8 +1,11 @@
 import React from 'react'
+import Header1 from '../Component/Header1'
+import Footer from '../Component/Footer'
 
 function Index() {
     return (
         <div>
+            <Header1/>
             {/* Facts Start */}
             <div className="container-fluid facts py-5 pt-lg-0">
                 <div className="container py-5 pt-lg-0">
@@ -528,6 +531,7 @@ function Index() {
                 </div>
             </div>
             {/* Blog Start */}
+            <Footer/>
         </div>
 
     )

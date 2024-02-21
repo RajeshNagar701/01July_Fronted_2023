@@ -8,15 +8,15 @@ function Footer() {
                 <div className="container py-5 mb-5">
                     <div className="bg-white">
                         <div className="owl-carousel vendor-carousel">
-                            <img src="img/vendor-1.jpg" alt />
-                            <img src="img/vendor-2.jpg" alt />
-                            <img src="img/vendor-3.jpg" alt />
-                            <img src="img/vendor-4.jpg" alt />
-                            <img src="img/vendor-5.jpg" alt />
-                            <img src="img/vendor-6.jpg" alt />
-                            <img src="img/vendor-7.jpg" alt />
-                            <img src="img/vendor-8.jpg" alt />
-                            <img src="img/vendor-9.jpg" alt />
+                            <img src="website/img/vendor-1.jpg" alt />
+                            <img src="website/img/vendor-2.jpg" alt />
+                            <img src="website/img/vendor-3.jpg" alt />
+                            <img src="website/img/vendor-4.jpg" alt />
+                            <img src="website/img/vendor-5.jpg" alt />
+                            <img src="website/img/vendor-6.jpg" alt />
+                            <img src="website/img/vendor-7.jpg" alt />
+                            <img src="website/img/vendor-8.jpg" alt />
+                            <img src="website/img/vendor-9.jpg" alt />
                         </div>
                     </div>
                 </div>
@@ -114,15 +114,14 @@ function Footer() {
             <a href="#" className="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i className="bi bi-arrow-up" /></a>
 
             <Helmet>
-           
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="website/lib/wow/wow.min.js"></script>
-            <script src="website/lib/easing/easing.min.js"></script>
-            <script src="website/lib/waypoints/waypoints.min.js"></script>
-            <script src="website/lib/counterup/counterup.min.js"></script>
-            <script src="website/lib/owlcarousel/owl.carousel.min.js"></script>
-            <script src="website/js/main.js"></script>
-            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="website/lib/wow/wow.min.js"></script>
+                <script src="website/lib/easing/easing.min.js"></script>
+                <script src="website/lib/waypoints/waypoints.min.js"></script>
+                <script src="website/lib/counterup/counterup.min.js"></script>
+                <script src="website/lib/owlcarousel/owl.carousel.min.js"></script>
+                <script src="website/js/main.js"></script>
             </Helmet>
         </div>
 

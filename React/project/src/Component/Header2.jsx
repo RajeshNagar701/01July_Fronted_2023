@@ -1,12 +1,30 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
+import { NavLink } from 'react-router-dom'
 
-function Header2() {
+function Header2({title}) {
     return (
         <div>
-            {/* Spinner Start */}
+            <Helmet>
+                <link href="website/img/favicon.ico" rel="icon" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+                <link href="website/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+                <link href="website/lib/animate/animate.min.css" rel="stylesheet" />
+                <link href="website/css/bootstrap.min.css" rel="stylesheet" />
+                <link href="website/css/style.css" rel="stylesheet" />
+
+              
+            </Helmet>
+            
+            {/* Spinner Start 
             <div id="spinner" className="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
                 <div className="spinner" />
             </div>
+            */}
             {/* Spinner End */}
             {/* Topbar Start */}
             <div className="container-fluid bg-dark px-5 d-none d-lg-block">
@@ -33,35 +51,35 @@ function Header2() {
             {/* Navbar Start */}
             <div className="container-fluid position-relative p-0">
                 <nav className="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
-                    <a href="index.html" className="navbar-brand p-0">
+                    <NavLink to="/" className="navbar-brand p-0">
                         <h1 className="m-0"><i className="fa fa-user-tie me-2" />Startup</h1>
-                    </a>
+                    </NavLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span className="fa fa-bars" />
                     </button>
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <div className="navbar-nav ms-auto py-0">
-                            <a href="index.html" className="nav-item nav-link">Home</a>
-                            <a href="about.html" className="nav-item nav-link active">About</a>
-                            <a href="service.html" className="nav-item nav-link">Services</a>
+                            <NavLink to="/" className="nav-item nav-link">Home</NavLink>
+                            <NavLink to="/about" className="nav-item nav-link">About</NavLink>
+                            <NavLink to="/service" className="nav-item nav-link">Services</NavLink>
                             <div className="nav-item dropdown">
-                                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
+                                <NavLink to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</NavLink>
                                 <div className="dropdown-menu m-0">
-                                    <a href="blog.html" className="dropdown-item">Blog Grid</a>
-                                    <a href="detail.html" className="dropdown-item">Blog Detail</a>
+                                    <NavLink to="/blog" className="dropdown-item">Blog Grid</NavLink>
+                                    <NavLink to="/detail" className="dropdown-item">Blog Detail</NavLink>
                                 </div>
                             </div>
                             <div className="nav-item dropdown">
-                                <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                                <NavLink to="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</NavLink>
                                 <div className="dropdown-menu m-0">
-                                    <a href="price.html" className="dropdown-item">Pricing Plan</a>
-                                    <a href="feature.html" className="dropdown-item">Our features</a>
-                                    <a href="team.html" className="dropdown-item">Team Members</a>
-                                    <a href="testimonial.html" className="dropdown-item">Testimonial</a>
-                                    <a href="quote.html" className="dropdown-item">Free Quote</a>
+                                    <NavLink to="/price" className="dropdown-item">Pricing Plan</NavLink>
+                                    <NavLink to="/feature" className="dropdown-item">Our features</NavLink>
+                                    <NavLink to="/team" className="dropdown-item">Team Members</NavLink>
+                                    <NavLink to="/testimonial" className="dropdown-item">Testimonial</NavLink>
+                                    <NavLink to="/quote" className="dropdown-item">Free Quote</NavLink>
                                 </div>
                             </div>
-                            <a href="contact.html" className="nav-item nav-link">Contact</a>
+                            <NavLink to="/contact" className="nav-item nav-link">Contact</NavLink>
                         </div>
                         <butaton type="button" className="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i className="fa fa-search" /></butaton>
                         <a href="https://htmlcodex.com/startup-company-website-template" className="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
@@ -70,10 +88,10 @@ function Header2() {
                 <div className="container-fluid bg-primary py-5 bg-header" style={{ marginBottom: 90 }}>
                     <div className="row py-5">
                         <div className="col-12 pt-lg-5 mt-lg-5 text-center">
-                            <h1 className="display-4 text-white animated zoomIn">About Us</h1>
-                            <a href className="h5 text-white">Home</a>
+                            <h1 className="display-4 text-white animated zoomIn">{title}</h1>
+                            <NavLink to="/" className="h5 text-white">Home</NavLink>
                             <i className="far fa-circle text-white px-2" />
-                            <a href className="h5 text-white">About</a>
+                            <NavLink to="/about" className="h5 text-white">About</NavLink>
                         </div>
                     </div>
                 </div>
@@ -96,6 +114,8 @@ function Header2() {
                 </div>
             </div>
             {/* Full Screen Search End */}
+
+            
         </div>
 
     )
