@@ -1,0 +1,35 @@
+{
+  "user": [],
+  "contact": [],
+  "categories": [
+    {
+      "id": "1",
+      "cate_name": "jay",
+      "img": "hi"
+    }
+  ],
+  "product": [
+    {
+      "id": "1",
+      "prod_name": "PRODUCT1",
+      "desc": "PRODUCT1",
+      "price": "299",
+      "img": "hi"
+    },
+    {
+      "id": "2",
+      "prod_name": "PRODUCT2",
+      "desc": "PRODUCT2",
+      "price": "499",
+      "img": "hi"
+    }
+  ],
+  "admin": [
+    {
+      "id": "1",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "123456"
+    }
+  ]
+}
