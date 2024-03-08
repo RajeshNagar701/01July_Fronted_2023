@@ -1,56 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Header2 from '../Component/Header2'
 import Footer from '../Component/Footer'
-import axios from 'axios';
-function Service() {
 
-    const [data, setData] = useState([]);
-    useEffect(() => {
-        fetch();
-    }, []);
-
-    const fetch = async () => {
-        const res = await axios.get(`http://localhost:3000/categories`);
-        console.log(res.data);
-        setData(res.data);
-    }
+function Testimonial() {
     return (
         <div>
-            <Header2 title="Service" />
-            <div className="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div className="container py-5">
-                    <div className="section-title text-center position-relative pb-3 mb-5 mx-auto" style={{ maxWidth: 600 }}>
-                        <h5 className="fw-bold text-primary text-uppercase">Our Services</h5>
-                        <h1 className="mb-0">Custom IT Solutions for Your Successful Business</h1>
-                    </div>
-                    <div className="row g-5">
-
-
-                        {
-                            data && data.map((value, index, arr) => {
-                                return (
-                                    <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.3s">
-                                        <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                                            <img src={value.img} className='mb-2' width="100%" height="150px" alt="" />
-                                            
-                                            <h4 className="mb-3">{value.cate_name}</h4>
-                                            <p className="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                                            <a className="btn btn-lg btn-primary rounded" href>
-                                                <i className="bi bi-arrow-right" />
-                                            </a>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-
-
-
-                    </div>
-                </div>
-            </div>
-            {/* Service End */}
-            {/* Testimonial Start */}
+            <Header2 title="Testimonial"/>
             <div className="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="container py-5">
                     <div className="section-title text-center position-relative pb-3 mb-4 mx-auto" style={{ maxWidth: 600 }}>
@@ -109,10 +64,10 @@ function Service() {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
 
     )
 }
 
-export default Service
+export default Testimonial
