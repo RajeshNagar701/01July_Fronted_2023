@@ -1,8 +1,19 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Header1() {
+
+    const redirect=useNavigate();
+    const userlogout=()=>{
+        localStorage.removeItem('uid');
+        localStorage.removeItem('uname');
+        toast.success('Logout Success ');
+        redirect('/');
+        return false;    
+    }
+
     return (
         <div>
 
@@ -13,12 +24,21 @@ function Header1() {
                 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
                 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
                 <link href="website/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
                 <link href="website/lib/animate/animate.min.css" rel="stylesheet" />
                 <link href="website/css/bootstrap.min.css" rel="stylesheet" />
                 <link href="website/css/style.css" rel="stylesheet" />
 
-              
+                <script src="%BASE_URL%/website/lib/easing/easing.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="%BASE_URL%/website/lib/wow/wow.min.js"></script>
+
+                <script src="%BASE_URL%/website/lib/waypoints/waypoints.min.js"></script>
+                <script src="%BASE_URL%/website/lib/counterup/counterup.min.js"></script>
+                <script src="%BASE_URL%/website/lib/owlcarousel/owl.carousel.min.js"></script>
+                <script src="%BASE_URL%/website/js/main.js"></script>
             </Helmet>
 
 
@@ -37,6 +57,16 @@ function Header1() {
                             <small className="me-3 text-light"><i className="fa fa-map-marker-alt me-2" />123 Street, New York, USA</small>
                             <small className="me-3 text-light"><i className="fa fa-phone-alt me-2" />+012 345 6789</small>
                             <small className="text-light"><i className="fa fa-envelope-open me-2" />info@example.com</small>
+                            {(
+                                () => {
+                                    if (localStorage.getItem('uid')) {
+                                        return (
+                                            <small className="text-light"><i className="fa fa-user ms-5 me-2" />Hi.. {localStorage.getItem('uname')}</small>
+                                        )
+                                    }
+                                }
+                            )()}
+
                         </div>
                     </div>
                     <div className="col-lg-4 text-center text-lg-end">
@@ -85,7 +115,21 @@ function Header1() {
                             <NavLink to="/contact" className="nav-item nav-link">Contact</NavLink>
                         </div>
                         <butaton type="button" className="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i className="fa fa-search" /></butaton>
-                        <a href="https://htmlcodex.com/startup-company-website-template" className="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
+                        {(
+                            () => {
+                                if (localStorage.getItem('uid')) {
+                                    return (
+                                        <a href="javascript:void(0)" onClick={userlogout} className="btn btn-primary py-2 px-4 ms-3">Logout</a>
+                                    )
+                                }
+                                else {
+                                    return (
+                                        <Link to="/login" className="btn btn-primary py-2 px-4 ms-3">Login</Link>
+                                    )
+                                }
+                            }
+                        )()}
+                        
                     </div>
                 </nav>
                 <div id="header-carousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -140,7 +184,7 @@ function Header1() {
                     </div>
                 </div>
             </div>
-        
+
         </div>
 
     )

@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Aheader from '../Component/Aheader'
 import Afooter from '../Component/Afooter'
+import { toast } from 'react-toastify';
 
 function Manage_user() {
 
@@ -20,6 +21,7 @@ function Manage_user() {
 
     const deleteHandel = async (id) => {
         const res = await axios.delete(`http://localhost:3000/user/${id}`);
+        toast.success('Delete success');
         fetch();
     }
     return (
@@ -52,7 +54,7 @@ function Manage_user() {
                                                         <td>{value.name}</td>
                                                         <td>{value.email}</td>
                                                         <td>{value.mobile}</td>
-                                                        <td>{value.img}</td>
+                                                        <td><img src={value.img} width="50px" alt="" /></td>
                                                         <td>
                                                             <button className='btn btn-primary'>Edit</button>
                                                             <button className='btn btn-danger'  onClick={()=>deleteHandel(value.id)}>Delete</button>

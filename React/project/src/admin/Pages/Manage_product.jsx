@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Aheader from '../Component/Aheader'
 import Afooter from '../Component/Afooter'
+import { toast } from 'react-toastify';
 
 function Manage_product() {
 
@@ -19,6 +20,7 @@ function Manage_product() {
 
     const deleteHandel = async (id) => {
         const res = await axios.delete(`http://localhost:3000/product/${id}`);
+        toast.success('Delete Success');
         fetch();
     }
     return (

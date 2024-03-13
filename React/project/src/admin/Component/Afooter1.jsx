@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-function Afooter() {
+function Afooter1() {
     return (
         <div>
             <div className="footer">
@@ -18,4 +18,4 @@ function Afooter() {
     )
 }
 
-export default Afooter
+export default Afooter1

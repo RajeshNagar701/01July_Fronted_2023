@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import Aheader from '../Component/Aheader'
 import Afooter from '../Component/Afooter'
+import { toast } from 'react-toastify';
 
 
 function Add_product() {
@@ -32,14 +33,49 @@ function Add_product() {
         setFormvalue({ ...formvalue, id: new Date().getTime().toString(), [e.target.name]: e.target.value });
         console.log(formvalue);
     }
+
+    function validation() {
+        var res = true;
+        if (formvalue.cate_id == "") {
+            toast.error("Categories required !");
+            res = false;
+            return false;
+        }
+        if (formvalue.prod_name == "") {
+            toast.error("Product price field required !");
+            res = false;
+            return false;
+        }
+        if (formvalue.price == "") {
+            toast.error("Price required !");
+            res = false;
+            return false;
+        }
+        if (formvalue.desc == "") {
+            toast.error("desc required !");
+            res = false;
+            return false;
+        }
+
+        if (formvalue.img == "") {
+            toast.error("Add img url Field is required !");
+            res = false;
+            return false;
+        }
+        
+        return res;
+    }
+
     const submitHandel = async (e) => {
         e.preventDefault(); // not reload page
-        const res = await axios.post(`http://localhost:3000/product`, formvalue);
-        //console.log(res);
-        setFormvalue({ ...formvalue, id: "", cate_id: "", prod_name: "", desc: "", price: "", img: "" });
-        alert('Data insert success');
-        return false;
-
+        if(validation())
+        {
+            const res = await axios.post(`http://localhost:3000/product`, formvalue);
+            //console.log(res);
+            setFormvalue({ ...formvalue, id: "", cate_id: "", prod_name: "", desc: "", price: "", img: "" });
+            toast.success('Data insert success');
+            return false;
+        }    
     }
 
     return (

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import Header2 from '../Component/Header2'
 import Footer from '../Component/Footer'
+import { toast } from 'react-toastify';
 
 function Contact() {
 
@@ -16,14 +17,47 @@ function Contact() {
         setFormvalue({...formvalue,id:new Date().getTime().toString(),[e.target.name]:e.target.value});
         console.log(formvalue);
      }
+
+     function validation()
+     {
+         var res=true;
+         if(formvalue.name=="")
+         {
+             toast.error("Name Field is required !");
+             res=false;
+             return false;
+         }
+         if(formvalue.email=="")
+         {
+             toast.error("Email Field is required !");
+             res=false;
+             return false;
+         }
+         if(formvalue.subject=="")
+         {
+             toast.error("subject Field is required !");
+             res=false;
+             return false;
+         }
+         
+         if(formvalue.comment=="")
+         {
+             toast.error("comment Field is required !");
+             res=false;
+             return false;
+         }
+         return res;
+     } 
     const submitHandel=async(e)=>{
         e.preventDefault(); // not reload page
-        const res=await axios.post(`http://localhost:3000/contact`,formvalue);
-        //console.log(res);
-        setFormvalue({...formvalue,id:"",name:"",email:"",subject:"",comment:""});
-        alert('Data insert success');
-        return false;
-        
+        if(validation())
+        {
+            const res=await axios.post(`http://localhost:3000/contact`,formvalue);
+            //console.log(res);
+            setFormvalue({...formvalue,id:"",name:"",email:"",subject:"",comment:""});
+            alert('Data insert success');
+            return false;
+        }
     }
 
 

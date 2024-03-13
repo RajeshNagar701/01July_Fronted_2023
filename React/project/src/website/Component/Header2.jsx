@@ -1,8 +1,18 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 function Header2({title}) {
+
+    const redirect=useNavigate();
+    const userlogout=()=>{
+        localStorage.removeItem('uid');
+        localStorage.removeItem('uname');
+        toast.success('Logout Success ');
+        redirect('/');
+        return false;    
+    }
     return (
         <div>
             <Helmet>
@@ -17,6 +27,15 @@ function Header2({title}) {
                 <link href="website/css/bootstrap.min.css" rel="stylesheet" />
                 <link href="website/css/style.css" rel="stylesheet" />
 
+                <script src="%BASE_URL%/website/lib/easing/easing.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="%BASE_URL%/website/lib/wow/wow.min.js"></script>
+                
+                <script src="%BASE_URL%/website/lib/waypoints/waypoints.min.js"></script>
+                <script src="%BASE_URL%/website/lib/counterup/counterup.min.js"></script>
+                <script src="%BASE_URL%/website/lib/owlcarousel/owl.carousel.min.js"></script>
+                <script src="%BASE_URL%/website/js/main.js"></script>
               
             </Helmet>
             
@@ -34,6 +53,15 @@ function Header2({title}) {
                             <small className="me-3 text-light"><i className="fa fa-map-marker-alt me-2" />123 Street, New York, USA</small>
                             <small className="me-3 text-light"><i className="fa fa-phone-alt me-2" />+012 345 6789</small>
                             <small className="text-light"><i className="fa fa-envelope-open me-2" />info@example.com</small>
+                            {(
+                                () => {
+                                    if (localStorage.getItem('uid')) {
+                                        return (
+                                            <small className="text-light"><i className="fa fa-user ms-5 me-2" />Hi.. {localStorage.getItem('uname')}</small>
+                                        )
+                                    }
+                                }
+                            )()}
                         </div>
                     </div>
                     <div className="col-lg-4 text-center text-lg-end">
@@ -82,7 +110,21 @@ function Header2({title}) {
                             <NavLink to="/contact" className="nav-item nav-link">Contact</NavLink>
                         </div>
                         <butaton type="button" className="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i className="fa fa-search" /></butaton>
-                        <a href="https://htmlcodex.com/startup-company-website-template" className="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a>
+                        {(
+                            () => {
+                                if (localStorage.getItem('uid')) {
+                                    return (
+                                        <a href="javascript:void(0)" onClick={userlogout} className="btn btn-primary py-2 px-4 ms-3">Logout</a>
+                                    )
+                                }
+                                else {
+                                    return (
+                                        <Link to="/login" className="btn btn-primary py-2 px-4 ms-3">Login</Link>
+                                    )
+                                }
+                            }
+                        )()}
+                        
                     </div>
                 </nav>
                 <div className="container-fluid bg-primary py-5 bg-header" style={{ marginBottom: 90 }}>

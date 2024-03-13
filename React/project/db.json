@@ -1,5 +1,24 @@
 {
-  "user": [],
+  "user": [
+    {
+      "id": "1710141563987",
+      "name": "ganesh",
+      "email": "ganesh@gmail.com",
+      "password": "1234",
+      "mobile": "9722041171",
+      "status": "Unblock",
+      "img": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/watch-card-40-s9-202309?wid=340&hei=264&fmt=p-jpg&qlt=95&.v=1693943487336"
+    },
+    {
+      "id": "1710141591345",
+      "name": "raj nagar",
+      "email": "raj@gmail.com",
+      "password": "1234",
+      "mobile": "1234567800",
+      "status": "Unblock",
+      "img": "https://img-getpocket.cdn.mozilla.net/296x148/filters:format(jpeg):quality(60):no_upscale():strip_exif()/https%3A%2F%2Fs3.us-east-1.amazonaws.com%2Fpocket-curatedcorpusapi-prod-images%2Fc97878cd-dfaa-4987-9388-95b0e2bfae7d.jpeg"
+    }
+  ],
   "contact": [
     {
       "id": "1709712498700",
@@ -58,6 +77,14 @@
       "desc": "Microsoft Power BI",
       "price": "499",
       "img": "https://thumbor.forbes.com/thumbor/fit-in/125x/https://www.forbes.com/advisor/in/wp-content/uploads/2023/07/Zoho-Analytics.png"
+    },
+    {
+      "id": "1709890279698",
+      "cate_id": "1709711710204",
+      "prod_name": "IBM Security QRadar EDR",
+      "desc": "SDSD",
+      "price": "5345",
+      "img": "https://gos3.ibcdn.com/thumb200X200-1707988777.jpg"
     }
   ],
   "admin": [

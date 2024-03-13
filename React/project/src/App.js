@@ -19,11 +19,17 @@ import Manage_product from './admin/Pages/Manage_product';
 import Add_product from './admin/Pages/Add_product';
 import Manage_user from './admin/Pages/Manage_user';
 import Manage_contact from './admin/Pages/Manage_contact';
+import Signup from './website/Pages/Signup';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Login from './website/Pages/Login';
 
 
 function App() {
   return (
     <BrowserRouter>
+        <ToastContainer></ToastContainer>
        <Routes>
 
             {
@@ -40,6 +46,8 @@ function App() {
             <Route path="/team" element={<><Team/></>}></Route>
             <Route path="/testimonial" element={<><Testimonial/></>}></Route>
             <Route path="/blog" element={<><Blog/></>}></Route>
+            <Route path="/signup" element={<><Signup/></>}></Route>
+            <Route path="/login" element={<><Login/></>}></Route>
            
             
             {

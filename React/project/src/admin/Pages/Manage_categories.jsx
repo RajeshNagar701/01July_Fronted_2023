@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import Aheader from '../Component/Aheader'
 import Afooter from '../Component/Afooter'
+import { toast } from 'react-toastify';
 
 function Manage_categories() {
     const [data, setData] = useState([]);
@@ -17,6 +18,7 @@ function Manage_categories() {
     }
     const deleteHandel = async (id) => {
         const res = await axios.delete(`http://localhost:3000/categories/${id}`);
+        toast.success('Delete Success');
         fetch();
     }
 
