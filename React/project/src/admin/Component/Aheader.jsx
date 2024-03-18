@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 function Aheader() {
+
+    useEffect(()=>{
+        if (localStorage.getItem('aid')) {
+        }
+        else {
+            return redirect('/admin-login')
+        }
+    },[]);
+
+    const redirect=useNavigate();
+    const adminlogout=()=>{
+        localStorage.removeItem('aid');
+        localStorage.removeItem('aname');
+        toast.success('Logout Success ');
+        redirect('/admin-login');
+        return false;    
+    }
+
     return (
         <div>
              <Helmet>
+
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
                 <link href="admin/assets/css/bootstrap.css" rel="stylesheet" />
                 <link href="admin/assets/css/font-awesome.css" rel="stylesheet" />
                 <link href="admin/assets/css/custom.css" rel="stylesheet" />
@@ -30,7 +55,7 @@ function Aheader() {
                         </a>
                     </div>
                     <span className="logout-spn">
-                        <a href="#" style={{ color: '#fff' }}>LOGOUT</a>
+                        <a href="javascript:void(0)" onClick={adminlogout} style={{ color: '#fff' }}>LOGOUT</a>
                     </span>
                 </div>
             </div>
@@ -56,6 +81,7 @@ function Aheader() {
                                 <li><NavLink className="dropdown-item" to="/manage_product">Manage Product</NavLink></li>
                             </ul>
                         </li>
+                        
                         <li>
                             <NavLink to="/manage_user"><i className="fa fa-table " />User</NavLink>
                         </li>

@@ -1,8 +1,17 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Helmet } from 'react-helmet'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
 
 function Aheader1() {
+
+    const redirect=useNavigate();
+
+    useEffect(()=>{
+        if (localStorage.getItem('aid')) {
+            return redirect('/dashboard')
+        }
+    },[]);
+
     return (
         <div>
              <Helmet>

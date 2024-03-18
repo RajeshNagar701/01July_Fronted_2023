@@ -61,8 +61,11 @@ function Header1() {
                                 () => {
                                     if (localStorage.getItem('uid')) {
                                         return (
+                                            <>
                                             <small className="text-light"><i className="fa fa-user ms-5 me-2" />Hi.. {localStorage.getItem('uname')}</small>
-                                        )
+                                            <small className="text-light"><i className="fa fa-user ms-5 me-2" /><Link to="/profile">My Account</Link></small>
+                                            </>
+                                            )
                                     }
                                 }
                             )()}

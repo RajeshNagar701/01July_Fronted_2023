@@ -24,6 +24,7 @@ import Signup from './website/Pages/Signup';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './website/Pages/Login';
+import Profile from './website/Pages/Profile';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
             <Route path="/blog" element={<><Blog/></>}></Route>
             <Route path="/signup" element={<><Signup/></>}></Route>
             <Route path="/login" element={<><Login/></>}></Route>
+            <Route path="/profile" element={<><Profile/></>}></Route>
            
             
             {

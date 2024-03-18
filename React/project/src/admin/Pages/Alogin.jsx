@@ -11,9 +11,9 @@ function Alogin() {
   const redirect=useNavigate();
     
   useEffect(()=>{
-      if(localStorage.getItem('uid'))
+      if(localStorage.getItem('aid'))
       {
-          return redirect('/')
+          return redirect('/dashboard')
       }
   },[]);
   
@@ -50,28 +50,21 @@ function Alogin() {
     e.preventDefault(); // not reload page
     if(validation())
     {
-        const res=await axios.get(`http://localhost:3000/user?email=${formvalue.email}`);
+        const res=await axios.get(`http://localhost:3000/admin?email=${formvalue.email}`);
         console.log(res);
         if(res.data.length>0)
         {
             if(res.data[0].password==formvalue.password)
             {
-                if(res.data[0].status=="Unblock")
-                {
+               
                     // session create
-                    localStorage.setItem('uid',res.data[0].id);
-                    localStorage.setItem('uname',res.data[0].name);
+                    localStorage.setItem('aid',res.data[0].id);
+                    localStorage.setItem('aname',res.data[0].name);
                     
                     redirect('/dashboard');
                     toast.success('Login Success ');
                     return false;     
-                }
-                else
-                {
-                    setFormvalue({...formvalue,email:"",password:""});
-                    toast.error('Accout Blocked ');
-                    return false;
-                }  
+              
             }
             else
             {
