@@ -4,8 +4,14 @@ import axios from 'axios';
 import Aheader from '../Component/Aheader'
 import Afooter from '../Component/Afooter'
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+
 
 function Manage_categories() {
+
+    
+    const redirect=useNavigate();       
+
     const [data, setData] = useState([]);
     useEffect(() => {
         fetch();
@@ -51,7 +57,7 @@ function Manage_categories() {
                                                         <td>{value.cate_name}</td>
                                                         <td><img src={value.img} alt="" width="50px"/></td>
                                                         <td>
-                                                            <button className='btn btn-primary'>Edit</button>
+                                                            <button className='btn btn-primary' onClick={()=>redirect('/edit_cate/' + value.id)}>Edit</button>
                                                             <button className='btn btn-danger' onClick={()=>deleteHandel(value.id)}>Delete</button>
                                                         </td>
                                                     </tr>

@@ -25,6 +25,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './website/Pages/Login';
 import Profile from './website/Pages/Profile';
+import Edit_categories from './admin/Pages/Edit_categories';
+import View_services from './website/Pages/View_services';
 
 
 function App() {
@@ -44,6 +46,7 @@ function App() {
             <Route path="/price" element={<><Price/></>}></Route>
             <Route path="/quate" element={<><Quate/></>}></Route>
             <Route path="/service" element={<><Service/></>}></Route>
+            <Route path="/view_service/:id" element={<><View_services/></>}></Route>
             <Route path="/team" element={<><Team/></>}></Route>
             <Route path="/testimonial" element={<><Testimonial/></>}></Route>
             <Route path="/blog" element={<><Blog/></>}></Route>
@@ -59,6 +62,7 @@ function App() {
             <Route path="/dashboard" element={<><Adashboard/></>}></Route>
             <Route path="/manage_categories" element={<><Manage_categories/></>}></Route>
             <Route path="/add_categories" element={<><Add_categories/></>}></Route>
+            <Route path="/edit_cate/:id" element={<><Edit_categories/></>}></Route>
             <Route path="/manage_product" element={<><Manage_product/></>}></Route>
             <Route path="/add_product" element={<><Add_product/></>}></Route>
             <Route path="/manage_user" element={<><Manage_user/></>}></Route>

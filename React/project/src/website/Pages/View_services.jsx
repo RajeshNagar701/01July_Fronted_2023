@@ -2,28 +2,29 @@ import React, { useState, useEffect } from 'react'
 import Header2 from '../Component/Header2'
 import Footer from '../Component/Footer'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-function Service() {
+function View_services() {
 
-    const redirect=useNavigate();
     const [data, setData] = useState([]);
     useEffect(() => {
         fetch();
     }, []);
 
+    const {id}=useParams();
+
     const fetch = async () => {
-        const res = await axios.get(`http://localhost:3000/categories`);
+        const res = await axios.get(`http://localhost:3000/product?cate_id=${id}`);
         console.log(res.data);
         setData(res.data);
     }
     return (
         <div>
-            <Header2 title="Service" />
+            <Header2 title="View Services Products" />
             <div className="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="container py-5">
                     <div className="section-title text-center position-relative pb-3 mb-5 mx-auto" style={{ maxWidth: 600 }}>
-                        <h5 className="fw-bold text-primary text-uppercase">Our Services</h5>
+                        <h5 className="fw-bold text-primary text-uppercase">View Services Products</h5>
                         <h1 className="mb-0">Custom IT Solutions for Your Successful Business</h1>
                     </div>
                     <div className="row g-5">
@@ -36,9 +37,9 @@ function Service() {
                                         <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
                                             <img src={value.img} className='mb-2' width="100%" height="150px" alt="" />
                                             
-                                            <h4 className="mb-3">{value.cate_name}</h4>
-                                            <p className="m-0">Amet justo dolor lorem kasd amet magna sea stet eos vero lorem ipsum dolore sed</p>
-                                            <a className="btn btn-lg btn-primary rounded" href="javascript:void(0)" onClick={()=>redirect('/view_service/'+ value.id)}>
+                                            <h4 className="mb-3">{value.prod_name}</h4>
+                                            <p className="m-0">{value.price}/- Rs.</p>
+                                            <a className="btn btn-lg btn-primary rounded" href>
                                                 <i className="bi bi-arrow-right" />
                                             </a>
                                         </div>
@@ -118,4 +119,4 @@ function Service() {
     )
 }
 
-export default Service
+export default View_services
