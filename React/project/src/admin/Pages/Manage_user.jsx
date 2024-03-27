@@ -24,6 +24,32 @@ function Manage_user() {
         toast.success('Delete success');
         fetch();
     }
+
+    const status = async (id) => {
+        const res = await axios.get(`http://localhost:3000/user/${id}`);
+        if (res.data.status == "Unblock") {
+            const response = await axios.patch(`http://localhost:3000/user/${id}`, { status: "Block" });
+            console.log(response);
+            if (response.status == 200) {
+                localStorage.removeItem('uid');
+                localStorage.removeItem('uname');
+                toast.success("User Blocked Success");
+                fetch();
+                return false;
+            }
+        }
+        else {
+            const response = await axios.patch(`http://localhost:3000/user/${id}`, { status: "Unblock" });
+            console.log(response);
+            if (response.status == 200) {
+                toast.success("User Unblocked Success");
+                fetch();
+                return false;
+            }
+        }
+    }
+
+
     return (
         <>
             <div id="wrapper">
@@ -57,8 +83,8 @@ function Manage_user() {
                                                         <td><img src={value.img} width="50px" alt="" /></td>
                                                         <td>
                                                             <button className='btn btn-primary'>Edit</button>
-                                                            <button className='btn btn-danger'  onClick={()=>deleteHandel(value.id)}>Delete</button>
-                                                            <button className='btn btn-success'>{value.status}</button>
+                                                            <button className='btn btn-danger' onClick={() => deleteHandel(value.id)}>Delete</button>
+                                                            <button className='btn btn-success' onClick={() => status(value.id)}>{value.status}</button>
                                                         </td>
                                                     </tr>
                                                 )
