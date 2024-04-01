@@ -13,11 +13,14 @@ import Mui_component from "./MUI/Mui_component";
 import Module_css from "./Module_css/Module_css";
 import Func_props from "./Props/Func_props";
 import Main_props from "./Props/Main_props";
+import Main_app from "./Props_Drilling/Main_app";
 import App_main from "./Routing/App_main";
 import Sass_css from "./Sass/Sass_css";
 import Styled_component from "./Styled_component/Styled_component";
 import Class_state from "./states/Class/Class_state";
 import Func_state from "./states/Function/Func_state";
+import UseContext_app from "./useContext/UseContext_app";
+import Useref from "./useRef/Useref";
 
 function App() {
   return (
@@ -62,7 +65,13 @@ function App() {
     
       // lifecycle
       //<Class_Life/>
-      <Func_life/>
+      //<Func_life/>
+
+      //<Useref/>
+
+      // props drilling / useContext/createContext 
+      //<Main_app/>
+      <UseContext_app/>
     }
     </div>
   );
