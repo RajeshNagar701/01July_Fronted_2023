@@ -4,9 +4,12 @@ import { toast } from 'react-toastify';
 import Footer from '../Component/Footer';
 import Header from '../Component/Header';
 import { Link } from 'react-router-dom';
+import { insertData } from '../userSlice';
+import { useSelector,useDispatch } from 'react-redux';
 
 function Add_user() {
 
+    const dispatch=useDispatch();
     const [formvalue, setFormvalue] = useState({
         id: "",
         name: "",
@@ -54,7 +57,9 @@ function Add_user() {
     const submitHandel = async (e) => {
         e.preventDefault();
         if (vadidation()) {
-          
+            dispatch(insertData(formvalue));
+            toast.success('Data Inserted success');
+            setFormvalue({ ...formvalue,name:"",email:"",password:"",mobile:"",img:""});
         }
 
     }
